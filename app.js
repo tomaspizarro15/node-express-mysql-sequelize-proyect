@@ -2,9 +2,11 @@ const path = require('path')
 
 const express = require('express'); 
 const parser = require('body-parser'); 
+const bodyParser = require('body-parser');
 
 const database = require('./database/database.js');
-const bodyParser = require('body-parser');
+
+const mainRoute = require('./routes/main'); 
 
 const app = express(); 
 
@@ -13,6 +15,8 @@ app.set('views' , 'views');
 
 app.use(bodyParser.urlencoded({extended : false}))
 app.use(express.static(path.join(__dirname , 'public'))) //give node access to some folder
+
+app.use(mainRoute)
 
 database.sync()
 .then(result => {
