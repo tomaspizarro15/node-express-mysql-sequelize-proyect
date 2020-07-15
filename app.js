@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const database = require('./database/database.js');
 
 const mainRoute = require('./routes/main'); 
-
+const shopRoute = require('./routes/shop');
 const app = express(); 
 
 app.set('view engine' , 'ejs');
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended : false}))
 app.use(express.static(path.join(__dirname , 'public'))) //give node access to some folder
 
 app.use(mainRoute)
-
+app.use(shopRoute)
 database.sync()
 .then(result => {
     console.log("mySQL SYNC TO APPLICACION" , result)
