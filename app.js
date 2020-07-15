@@ -8,7 +8,8 @@ const database = require('./database/database.js');
 
 const mainRoute = require('./routes/main'); 
 const shopRoute = require('./routes/shop');
-const app = express(); 
+const adminRoute = require('./routes/admin');
+const app = express();                                                                      
 
 app.set('view engine' , 'ejs');
 app.set('views' , 'views');
@@ -16,8 +17,10 @@ app.set('views' , 'views');
 app.use(bodyParser.urlencoded({extended : false}))
 app.use(express.static(path.join(__dirname , 'public'))) //give node access to some folder
 
+app.use('/admin' , adminRoute)
 app.use(mainRoute)
 app.use(shopRoute)
+
 database.sync()
 .then(result => {
     console.log("mySQL SYNC TO APPLICACION" , result)

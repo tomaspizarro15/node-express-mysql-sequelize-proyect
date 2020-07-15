@@ -1,7 +1,7 @@
 .navigation_bar__container {
     position: fixed;
     width: 100%;
-    height: 3.5vw;
+    height: 3.5rem;
     min-height: 2.5rem;
     z-index: 500;
 }
@@ -11,7 +11,8 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: #1b1b1b;
+    background-color: #1F9491;
+    box-shadow: 0 0 15px -5px;
 }
 .navigation_bar ul {
     display: flex;
@@ -24,22 +25,23 @@
 .navigation_bar li {
     text-align: center;
     width:10%;
-    padding: 0.5%;
+    padding: 0.75%;
     margin: 0 0.5% 0 0.5%;
     list-style: none;
-    border-radius: 8px;
-    transition: border 250ms ease-in-out;
-    border: 3px solid #1b1b1b;
+    border-radius: 2px;
 }
 .navigation_bar a {
     padding: 5%;
-    color: #ddd;
+    color: #1b1b1b;
     text-decoration: none;
+    font-weight: bold;
     font-size: 2.5vmin; 
 }
 .navigation_bar li:hover {
-    transition: border 250ms ease-in-out;
-    border: 3px solid yellow;
+   background-color: #ABEDC1;
+   box-shadow: 0 0 10px -5px;
+
+
 }
 @media(max-width : 768px) {
  .navigation_bar__container {
@@ -49,6 +51,7 @@
      width: 25%
  }
  .navigation_bar a{
+     color: white;
      font-size: 16px;
  }
 }

@@ -1,0 +1,39 @@
+.main_page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 97.5%;
+    height: 40rem;
+    background-color: white;
+    box-shadow: 0 0 15px -5px black;
+}
+.main_page h1{
+    color: grey;
+    font-size: 7vmin;
+}
+.featured_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 15rem;
+    margin: 0.5% 0 0.5% 0;
+    background-color: white;
+    box-shadow: 0 0 15px -5px black;
+}
+@media(max-width : 768px) {
+    .main_page {
+        text-align: center;
+        height: 20rem;
+    }
+    .main_page h1{
+        font-size: 12vmin;
+    }
+    .featured_page {
+        height: 10rem;
+        width: 95%;
+        margin: 2% 0 2% 0;
+    }
+}
