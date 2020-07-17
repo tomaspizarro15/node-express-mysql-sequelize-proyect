@@ -1,0 +1,17 @@
+<%-include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/user/user.css">
+<div class ="create_user__container">
+    <div class="create_user__head">
+        <h1>Welcome</h1>
+    </div>
+    <form method="POST" action="/add-user">
+        <label>username</label>
+        <input type="text" name="username" id="username" placeholder="user name">
+        <label>email</label>
+        <input type="email" name="email" id="email" placeholder="test@test.com">
+        <label>password</label>
+        <input type="password" name="password" id="password" placeholder="***********">
+        <button type="submit">Create</button>
+    </form>
+</div>
+<%-include('../includes/ending.ejs')%>

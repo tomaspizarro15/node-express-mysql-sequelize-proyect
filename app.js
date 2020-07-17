@@ -12,7 +12,7 @@ const User = require('./models/user');
 const mainRoute = require('./routes/main');
 const shopRoute = require('./routes/shop');
 const adminRoute = require('./routes/admin');
-
+const userRoute = require('./routes/users');
 
 const app = express();
 
@@ -25,6 +25,9 @@ app.use(express.static(path.join(__dirname, 'public'))) //give node access to so
 app.use('/admin', adminRoute)
 app.use(mainRoute)
 app.use(shopRoute)
+app.use(userRoute)
+
+
 app.use((req, res, next) => {
 
     User.findByPk(1).then(user => {
@@ -37,22 +40,9 @@ app.use((req, res, next) => {
 Product.belongsTo(User, { contraints: true, onDelete: 'CASCADE' });           //Relacion de Hijo a Padre
 User.hasMany(Product);                                                         //Relacion de Padre a Hijo
 
-
-
 database.sync()
-
-    .then(result => {
-       return  User.findByPk(1)
-    })
-    .then(user  => {
-        if(!user){
-            console.log('User unexisting')
-            User.create({username : 'tomasito' , email: 'test01@test.com'})
-        }
-        return user
-    })
-    .then(user => {
-        console.log(user);
-        app.listen(3000); 
-    })
-    .catch(err => console.log(err));
+.then( (result) => {
+    console.log(result)
+    app.listen(3000)
+})
+.catch( err => console.log(err))
