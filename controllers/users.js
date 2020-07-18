@@ -19,7 +19,7 @@ exports.getCreateUser = (req,res,next) => {
     })
 }
 exports.postCreateUser = (req, res, next) => {
-        console.log("USER INPUT DATA:" ,req.body.username, req.body.email, req.body.password)
+    console.log("USER INPUT DATA:" ,req.body.username, req.body.email, req.body.password)
     Users.create(
         {
             username : req.body.username,
@@ -30,7 +30,7 @@ exports.postCreateUser = (req, res, next) => {
         res.redirect('/')
     )
 }
-exports.receiveUser = (req,res,next) => {
+exports.postLogin = (req,res,next) => {
 
     console.log( "Incoming username:", req.body.username , "Incoming password:", req.body.password )
 
@@ -42,8 +42,8 @@ exports.receiveUser = (req,res,next) => {
     })
 
 }
-exports.getUser = (req,res,next) => {
-    res.render('/login', {
+exports.getLogin = (req,res,next) => {
+    res.render('user/login', {
         path : '/login', 
         pageTitle : 'Log In',
     })

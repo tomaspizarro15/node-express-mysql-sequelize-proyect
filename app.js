@@ -1,7 +1,6 @@
 const path = require('path')
 
 const express = require('express');
-const parser = require('body-parser');
 const bodyParser = require('body-parser');
 
 const database = require('./database/database.js');
@@ -26,16 +25,6 @@ app.use('/admin', adminRoute)
 app.use(mainRoute)
 app.use(shopRoute)
 app.use(userRoute)
-
-
-app.use((req, res, next) => {
-
-    User.findByPk(1).then(user => {
-        req.user = user;
-    });
-    next();
-
-})
 
 Product.belongsTo(User, { contraints: true, onDelete: 'CASCADE' });           //Relacion de Hijo a Padre
 User.hasMany(Product);                                                         //Relacion de Padre a Hijo
