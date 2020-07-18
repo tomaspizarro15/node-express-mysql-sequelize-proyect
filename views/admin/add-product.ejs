@@ -1,6 +1,15 @@
 <%-include('../includes/head.ejs')%>
-<form class ="add_product">
-    <label>Create a new product</label>    
-    <input>
+<link rel="stylesheet" href="/css/admin/add-product.css">
+<form class ="add_product" action = "/admin/add-product" method ="POST">
+    <h1>NEW PRODUCT</h1>
+    <label>Nombre</label>    
+    <input type ="text" name = "name" id ="name" placeholder="Product Name">
+    <label>Precio</label>    
+    <input type ="number" name = "price" id ="price" placeholder="Price">
+    <label>URL Image</label>    
+    <input type ="text" name = "image" id ="image" placeholder="Image Adress">
+    <label>Descripcion</label>    
+    <textarea name = "description" id ="description" placeholder="Descripcion..."></textarea>
+    <button type ="submit">Submit Product</button>
 </form>
 <%-include('../includes/ending.ejs')%>                                      
