@@ -8,12 +8,20 @@ const User = database.define('users' , {
         autoIncrement : true, 
         type : Sequelize.INTEGER,
         allowNull : false,
-    },
+    },  
     username : {
         primaryKey : true,
         type : Sequelize.STRING,
         allowNull : false,
         unique : true, 
+    },
+    first_name:{
+        type : Sequelize.STRING,
+        allowNull : false,
+    },
+    last_name:{
+        type : Sequelize.STRING,
+        allowNull : false,
     },
     email : {
         type : Sequelize.STRING,

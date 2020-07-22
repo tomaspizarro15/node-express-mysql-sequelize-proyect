@@ -8,6 +8,11 @@ const Cart  = database.define('cart' , {
         allowNull : false, 
         primaryKey : true,
     },
+    owner : {
+        type : Sequelize.STRING,
+        allowNull : false,
+        primaryKey : true,
+    },
     products : {
         type : Sequelize.STRING, 
         allowNull : true, 

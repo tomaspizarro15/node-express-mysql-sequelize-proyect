@@ -24,16 +24,17 @@ exports.postCreateUser = (req, res, next) => {
     Users.create(
         {
             username : req.body.username,
+            first_name : req.body.first, 
+            last_name : req.body.last,
             email : req.body.email,
             password : req.body.password,
         }
     ).then(user => {
         console.log("User created:::::>", user)
-        Cart.create()
+        Cart.create({owner : user.username})
         .then( cart => {
             return cart 
         })
-
     })
     .then(cart => {
         console.log(cart)
