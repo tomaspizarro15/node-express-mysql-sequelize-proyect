@@ -1,5 +1,6 @@
 const Users = require('../models/user');
 const User = require('../models/user');
+const Cart = require('../models/cart');
 
 exports.getAllUsers = (req, res, next) => {
 
@@ -26,9 +27,21 @@ exports.postCreateUser = (req, res, next) => {
             email : req.body.email,
             password : req.body.password,
         }
-    ).then(
+    ).then(user => {
+        console.log("User created:::::>", user)
+        Cart.create()
+        .then( cart => {
+            return cart 
+        })
+
+    })
+    .then(cart => {
+        console.log(cart)
         res.redirect('/')
-    )
+    })  
+    .catch(err => {
+        console.log("Something failed creating user::::::>" , err)
+    })
 }
 exports.postLogin = (req,res,next) => {
 

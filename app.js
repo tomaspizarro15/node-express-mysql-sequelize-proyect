@@ -12,6 +12,7 @@ const mainRoute = require('./routes/main');
 const shopRoute = require('./routes/shop');
 const adminRoute = require('./routes/admin');
 const userRoute = require('./routes/users');
+const Cart = require('./models/cart.js');
 
 const app = express();
 
@@ -28,6 +29,8 @@ app.use(userRoute)
 
 Product.belongsTo(User, { contraints: true, onDelete: 'CASCADE' });           //Relacion de Hijo a Padre
 User.hasMany(Product);                                                         //Relacion de Padre a Hijo
+User.hasOne(Cart);
+Cart.belongsTo(User);
 
 database.sync()
 .then( (result) => {

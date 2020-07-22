@@ -1,5 +1,6 @@
 const Products = require('../models/products');
 const User = require('../models/user');
+const Cart = require('../models/cart');
 
 exports.getAdminProducts = (req, res, next) => {
 
@@ -36,4 +37,10 @@ exports.postAddProduct = (req, res, next) => {
         res.redirect('/shop');
     })
     .catch(err => console.log(err));
+}
+
+exports.getCart = (req,res,next) => {
+
+
+
 }
