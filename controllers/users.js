@@ -30,16 +30,9 @@ exports.postCreateUser = (req, res, next) => {
             password : req.body.password,
         }
     ).then(user => {
-        console.log("User created:::::>", user)
-        Cart.create({owner : user.username})
-        .then( cart => {
-            return cart 
-        })
-    })
-    .then(cart => {
-        console.log(cart)
+        console.log(user);
         res.redirect('/')
-    })  
+    })
     .catch(err => {
         console.log("Something failed creating user::::::>" , err)
     })
@@ -60,5 +53,23 @@ exports.getLogin = (req,res,next) => {
     res.render('user/login', {
         path : '/login', 
         pageTitle : 'Log In',
+    })
+}
+exports.postLogin = (req,res,next) => {
+    const inputUsername = req.body.username; 
+    const inputPassword = req.body.password; 
+
+    console.log("Incoming data :>" , inputUsername , inputPassword);
+    User.findAll({where: {username : inputUsername , password : inputPassword}})
+    .then(user => {
+        if(user){
+            req.user = user; 
+        }else {
+            console.log("user not found"); 
+            res.redirect('/add-user')
+        }
+    })
+    .catch(err => {
+        console.log(err)
     })
 }

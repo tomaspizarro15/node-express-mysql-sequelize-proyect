@@ -34,6 +34,13 @@ Cart.belongsTo(User);
 
 database.sync()
 .then( (result) => {
+    app.use((req,res,next) => {
+        User.findByPk(1)
+        .then(user => {
+            req.user = user; 
+            console.log("USER:::::::>" , user)           
+        })
+    })
     console.log(result)
     app.listen(3000)
 })

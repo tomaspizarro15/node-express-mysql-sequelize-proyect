@@ -1,10 +1,15 @@
 const Products = require('../models/products');
+const User = require('../models/user');
 
-module.exports.mainController = (req, res, next) => {
-    res.render('index',{
-      pageTitle: 'Add Product',
-      path: '/admin/add-product',
-      editing: false
-    });
-  };
-  
+module.exports.getMainPage = (req, res, next) => {
+  User.findAll(where)
+  .then( data => {
+    req.user = data.dataValues; 
+    console.log("USER:::::>",req.user)
+  })
+  .then( (user) => {res.render('index' ,{
+      pageTitle : "main",
+      user : user
+  })})
+  .catch( err => console.log(err))
+};
