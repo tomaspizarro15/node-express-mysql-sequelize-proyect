@@ -9,4 +9,4 @@ route.post('/add-user' , user.postCreateUser)
 route.get('/login',user.getLogin);
 route.post('/login',user.postLogin);
 
-module.exports = route;
+module.exports = route;                                                                                 

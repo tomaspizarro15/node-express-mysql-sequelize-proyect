@@ -2,7 +2,7 @@ const Products = require('../models/products');
 const User = require('../models/user');
 
 module.exports.getMainPage = (req, res, next) => {
-  User.findAll(where)
+  User.findAll()
   .then( data => {
     req.user = data.dataValues; 
     console.log("USER:::::>",req.user)

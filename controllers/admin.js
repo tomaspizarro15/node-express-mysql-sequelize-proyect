@@ -3,7 +3,7 @@ const User = require('../models/user');
 const Cart = require('../models/cart');
 
 exports.getAdminProducts = (req, res, next) => {
-
+    
     User.createProduct.then(products => {
         if (products.length === 0) {
             console.log('no products available')
